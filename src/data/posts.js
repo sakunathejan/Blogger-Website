@@ -436,6 +436,12 @@ export const posts = [
     },
   ];
 
+// Normalize category name (trim whitespace, handle case)
+const normalizeCategory = (category) => {
+  if (!category) return '';
+  return category.trim();
+};
+
 // Get featured posts
 export const getFeaturedPosts = () => posts.filter(post => post.featured);
 
@@ -453,31 +459,52 @@ export const getPostBySlug = (slug) => {
 
 // Get posts by category
 export const getPostsByCategory = (category) => {
-  return posts.filter(post => post.category === category);
+  if (!category) return [];
+  const normalizedCategory = normalizeCategory(category);
+  return posts.filter(post => {
+    const postCategory = normalizeCategory(post.category);
+    return postCategory === normalizedCategory;
+  });
 };
 
 // Get related posts
 export const getRelatedPosts = (currentPost, limit = 3) => {
+  if (!currentPost) return [];
+  const currentCategory = normalizeCategory(currentPost.category);
   return posts
-    .filter(post =>
-      post.id !== currentPost.id &&
-      (post.category === currentPost.category ||
-       post.tags.some(tag => currentPost.tags.includes(tag)))
-    )
+    .filter(post => {
+      if (post.id === currentPost.id) return false;
+      const postCategory = normalizeCategory(post.category);
+      return postCategory === currentCategory ||
+             (post.tags && currentPost.tags && post.tags.some(tag => currentPost.tags.includes(tag)));
+    })
     .slice(0, limit);
 };
 
 // Get all unique categories from posts
 export const getAllCategories = () => {
-  const uniqueCategories = [...new Set(posts.map(post => post.category))];
-  return uniqueCategories.sort();
+  const categoryMap = new Map();
+  posts.forEach(post => {
+    if (post.category) {
+      const normalized = normalizeCategory(post.category);
+      if (normalized && !categoryMap.has(normalized)) {
+        categoryMap.set(normalized, normalized);
+      }
+    }
+  });
+  return Array.from(categoryMap.values()).sort();
 };
 
 // Get all categories with post counts
 export const getCategoriesWithCounts = () => {
   const categoryCounts = {};
   posts.forEach(post => {
-    categoryCounts[post.category] = (categoryCounts[post.category] || 0) + 1;
+    if (post.category) {
+      const normalized = normalizeCategory(post.category);
+      if (normalized) {
+        categoryCounts[normalized] = (categoryCounts[normalized] || 0) + 1;
+      }
+    }
   });
   return categoryCounts;
 };
