@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://diaryofsaku.com/sitemap.xml
+
+# Disallow admin areas (if any)
+Disallow: /admin/
+Disallow: /api/
+
+# Allow all other pages
+Allow: /
+Allow: /post/
+Allow: /category/
+Allow: /about
+Allow: /contact
+Allow: /privacy
+
+# Crawl-delay
+Crawl-delay: 1
+
