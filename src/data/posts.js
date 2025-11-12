@@ -85,7 +85,7 @@ export const posts = [
   ---
   `,
       category: 'Artificial Intelligence',
-      author: 'Alexandria Vance',
+      author: 'The Debug Lounge',
       date: '2025-01-20',
       featured: true,
       image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=400&fit=crop',
@@ -153,7 +153,7 @@ export const posts = [
   ---
   `,
       category: 'Hardware & Mobile',
-      author: 'Daniel Chen',
+      author: 'The Debug Lounge',
       date: '2025-02-15',
       featured: true,
       image: 'https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?w=800&h=400&fit=crop',
@@ -226,7 +226,7 @@ export const posts = [
   ---
   `,
       category: 'Future Tech',
-      author: 'Dr. Evelyn Reed',
+      author: 'The Debug Lounge',
       date: '2025-03-01',
       featured: true,
       image: 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&h=400&fit=crop',
@@ -300,7 +300,7 @@ export const posts = [
   ---
   `,
       category: 'Cybersecurity',
-      author: 'Markus Silva',
+      author: 'The Debug Lounge',
       date: '2025-04-05',
       featured: true,
       image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=400&fit=crop',
@@ -366,7 +366,7 @@ export const posts = [
   ---
   `,
       category: 'Web3 & Metaverse',
-      author: 'Samira Khan',
+      author: 'The Debug Lounge',
       date: '2025-05-10',
       featured: true,
       image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=400&fit=crop',
@@ -428,7 +428,7 @@ export const posts = [
 
   `,
       category: 'AI & Mobility',
-      author: 'Alex Rivera',
+      author: 'The Debug Lounge',
       date: '2025-06-15',
       featured: false,
       image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&h=400&fit=crop',
