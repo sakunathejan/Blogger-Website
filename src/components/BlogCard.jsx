@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import LazyImage from './LazyImage';
 import './BlogCard.css';
 
 const BlogCard = ({ post, featured = false }) => {
+  const [imageError, setImageError] = useState(false);
+
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -11,15 +14,18 @@ const BlogCard = ({ post, featured = false }) => {
     });
   };
 
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
   return (
     <article className={`blog-card ${featured ? 'blog-card-featured' : ''}`}>
       <Link to={`/post/${post.slug}`} className="blog-card-link">
         <div className="blog-card-image-wrapper">
-          <img
+          <LazyImage
             src={post.image}
             alt={post.title}
-            loading="lazy"
-            className="blog-card-image"
+            className="blog-card-image-wrapper"
           />
           {featured && <span className="featured-badge">Featured</span>}
         </div>

@@ -88,7 +88,7 @@ export const posts = [
       author: 'Alexandria Vance',
       date: '2025-01-20',
       featured: true,
-      image: 'https://images.unsplash.com/photo-1542475658-0051b759600a?w=800&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=400&fit=crop',
       tags: ['AI Agents', 'GPT-5', 'Devin', 'Automation', 'Future of Work', 'Self-Coding'],
     },
     {
@@ -156,7 +156,7 @@ export const posts = [
       author: 'Daniel Chen',
       date: '2025-02-15',
       featured: true,
-      image: 'https://images.unsplash.com/photo-1596766472304-4531cc295627?w=800&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?w=800&h=400&fit=crop',
       tags: ['iPhone 16', 'Apple', 'Vision Pro 2', 'AI', 'iOS 19', 'Edge Computing', 'Privacy'],
     },
     {
@@ -229,7 +229,7 @@ export const posts = [
       author: 'Dr. Evelyn Reed',
       date: '2025-03-01',
       featured: true,
-      image: 'https://images.unsplash.com/photo-1510931564757-7964b4c48971?w=800&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&h=400&fit=crop',
       tags: ['Quantum Computing', 'Qubit', 'NISQ', 'Cryptography', 'Materials Science', 'Deep Tech'],
     },
     {
@@ -303,7 +303,7 @@ export const posts = [
       author: 'Markus Silva',
       date: '2025-04-05',
       featured: true,
-      image: 'https://images.unsplash.com/photo-1549495368-8e6d23429813?w=800&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=400&fit=crop',
       tags: ['Deepfakes', 'Cybersecurity', 'AI Detection', 'Synthetic Media', 'Fraud', 'Vishing'],
     },
     {
@@ -369,7 +369,7 @@ export const posts = [
       author: 'Samira Khan',
       date: '2025-05-10',
       featured: true,
-      image: 'https://images.unsplash.com/photo-1639017775953-b0f370f146a4?w=800&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=400&fit=crop',
       tags: ['Web3', 'Metaverse', 'NFT 2.0', 'DePIN', 'Blockchain', 'AR/VR', 'Decentralization'],
     },
     {
@@ -431,7 +431,7 @@ export const posts = [
       author: 'Alex Rivera',
       date: '2025-06-15',
       featured: false,
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&h=400&fit=crop',
       tags: ['Autonomous Vehicles', 'AI', 'Mobility', 'Logistics', 'V2X', 'MaaS'],
     },
   ];

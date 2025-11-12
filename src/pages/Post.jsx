@@ -15,6 +15,7 @@ const Post = () => {
   const [post, setPost] = useState(null);
   const [relatedPosts, setRelatedPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [featuredImageError, setFeaturedImageError] = useState(false);
 
   useEffect(() => {
     const foundPost = getPostBySlug(slug);
@@ -43,6 +44,15 @@ const Post = () => {
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
     linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
     whatsapp: `https://wa.me/?text=${encodeURIComponent(shareTitle + ' ' + shareUrl)}`,
+  };
+
+  const handleFeaturedImageError = () => {
+    setFeaturedImageError(true);
+  };
+
+  const handleRelatedImageError = (postId) => {
+    // Could implement individual error states for related posts if needed
+    console.warn(`Image failed to load for related post ${postId}`);
   };
 
   if (isLoading) {
@@ -105,12 +115,24 @@ const Post = () => {
               {/* Featured Image */}
               {post.image && (
                 <div className="post-image-wrapper">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="post-image"
-                    loading="lazy"
-                  />
+                  {!featuredImageError ? (
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="post-image"
+                      loading="lazy"
+                      onError={handleFeaturedImageError}
+                    />
+                  ) : (
+                    <div className="post-image-fallback">
+                      <div className="fallback-content">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                        </svg>
+                        <span>Featured image unavailable</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -210,6 +232,7 @@ const Post = () => {
                             alt={relatedPost.title}
                             className="related-post-image"
                             loading="lazy"
+                            onError={() => handleRelatedImageError(relatedPost.id)}
                           />
                         )}
                         <div className="related-post-content">
