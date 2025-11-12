@@ -1,8 +1,8 @@
 export const siteConfig = {
   siteUrl: 'https://diaryofsaku.com',
-  siteName: 'Diary of Saku',
+  siteName: 'The Debug Lounge',
   siteDescription: 'Professional blogging website with clean design and insightful content',
-  author: 'Diary Of Saku',
+  author: 'The Debug Lounge',
   authorEmail: 'diaryofsaku200504@gmail.com',
   twitterHandle: '@yourhandle',
   facebookPage: 'https://web.facebook.com/profile.php?id=61554311371309',
