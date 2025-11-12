@@ -1,6 +1,13 @@
 import { posts } from '../data/posts';
 import { siteConfig } from '../config';
 
+const slugify = (str) =>
+  String(str)
+    .toLowerCase()
+    .trim()
+    .replace(/&/g, 'and')
+    .replace(/\s+/g, '-');
+
 export const generateSitemap = () => {
   const baseUrl = siteConfig.siteUrl;
   const currentDate = new Date().toISOString().split('T')[0];
@@ -20,7 +27,7 @@ export const generateSitemap = () => {
   }));
 
   const categoryPages = [...new Set(posts.map(post => post.category))].map(category => ({
-    url: `/category/${category.toLowerCase()}`,
+    url: `/category/${slugify(category)}`,
     priority: '0.7',
     changefreq: 'weekly',
   }));

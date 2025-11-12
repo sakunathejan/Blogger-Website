@@ -10,6 +10,13 @@ const __dirname = dirname(__filename);
 const { posts } = await import('../src/data/posts.js');
 const { siteConfig } = await import('../src/config.js');
 
+const slugify = (str) =>
+  String(str)
+    .toLowerCase()
+    .trim()
+    .replace(/&/g, 'and')
+    .replace(/\s+/g, '-');
+
 const generateSitemap = () => {
   const baseUrl = siteConfig.siteUrl;
   const currentDate = new Date().toISOString().split('T')[0];
@@ -29,7 +36,7 @@ const generateSitemap = () => {
   }));
 
   const categoryPages = [...new Set(posts.map(post => post.category))].map(category => ({
-    url: `/category/${category.toLowerCase()}`,
+    url: `/category/${slugify(category)}`,
     priority: '0.7',
     changefreq: 'weekly',
   }));
