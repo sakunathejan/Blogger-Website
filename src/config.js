@@ -12,14 +12,12 @@ export const siteConfig = {
 };
 
 export const categories = [
-  'Technology',
-  'Lifestyle',
-  'Travel',
-  'Food',
-  'Health',
-  'Business',
-  'Design',
-  'Personal',
+  'Artificial Intelligence',
+  'Hardware & Mobile',
+  'Future Tech',
+  'Cybersecurity',
+  'Web3 & Metaverse',
+  'AI & Mobility',
 ];
 
 export const socialLinks = {

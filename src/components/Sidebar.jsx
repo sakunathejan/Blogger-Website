@@ -41,14 +41,18 @@ const Sidebar = () => {
       <div className="sidebar-widget">
         <h3>Categories</h3>
         <ul className="category-list">
-          {categories.map((category) => (
-            <li key={category}>
-              <Link to={`/category/${category.toLowerCase()}`}>
-                {category}
-                <span className="category-count">({categoryCounts[category] || 0})</span>
-              </Link>
-            </li>
-          ))}
+          {categories.map((category) => {
+            // Convert category to URL-friendly slug
+            const categorySlug = category.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+            return (
+              <li key={category}>
+                <Link to={`/category/${categorySlug}`}>
+                  {category}
+                  <span className="category-count">({categoryCounts[category] || 0})</span>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
 

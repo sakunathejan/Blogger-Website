@@ -101,7 +101,10 @@ const Post = () => {
             <article className="post-article">
               {/* Post Header */}
               <header className="post-header">
-                <Link to={`/category/${post.category.toLowerCase()}`} className="post-category">
+                <Link 
+                  to={`/category/${post.category.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`} 
+                  className="post-category"
+                >
                   {post.category}
                 </Link>
                 <h1 className="post-title">{post.title}</h1>

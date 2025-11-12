@@ -4,26 +4,41 @@ import BlogCard from '../components/BlogCard';
 import Sidebar from '../components/Sidebar';
 import SEO from '../components/SEO';
 import { getFeaturedPosts, getRecentPosts, getPostsByCategory } from '../data/posts';
-import { siteConfig } from '../config';
+import { siteConfig, categories } from '../config';
 import './Home.css';
 
 const Home = () => {
-  const { category } = useParams();
+  const { category: categoryParam } = useParams();
   const [posts, setPosts] = useState([]);
   const [featuredPosts, setFeaturedPosts] = useState([]);
+  const [category, setCategory] = useState(null);
 
   useEffect(() => {
-    if (category) {
-      const categoryPosts = getPostsByCategory(category);
-      setPosts(categoryPosts);
-      setFeaturedPosts([]);
+    if (categoryParam) {
+      // Find the matching category by converting slug back to category name
+      const matchedCategory = categories.find(cat => {
+        const categorySlug = cat.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+        return categorySlug === categoryParam.toLowerCase();
+      });
+      
+      if (matchedCategory) {
+        setCategory(matchedCategory);
+        const categoryPosts = getPostsByCategory(matchedCategory);
+        setPosts(categoryPosts);
+        setFeaturedPosts([]);
+      } else {
+        setCategory(null);
+        setPosts([]);
+        setFeaturedPosts([]);
+      }
     } else {
+      setCategory(null);
       const featured = getFeaturedPosts();
       const recent = getRecentPosts(12);
       setFeaturedPosts(featured);
       setPosts(recent);
     }
-  }, [category]);
+  }, [categoryParam]);
 
   const pageTitle = category 
     ? `${category} Posts | ${siteConfig.siteName}`
