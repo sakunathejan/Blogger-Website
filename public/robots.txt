@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://diaryofsaku.com/sitemap.xml
+Sitemap: https://diaryofsaku.netlify.app/sitemap.xml
 
 # Disallow admin areas (if any)
 Disallow: /admin/
