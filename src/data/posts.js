@@ -467,6 +467,12 @@ export const getRelatedPosts = (currentPost, limit = 3) => {
     .slice(0, limit);
 };
 
+// Get all unique categories from posts
+export const getAllCategories = () => {
+  const uniqueCategories = [...new Set(posts.map(post => post.category))];
+  return uniqueCategories.sort();
+};
+
 // Get all categories with post counts
 export const getCategoriesWithCounts = () => {
   const categoryCounts = {};

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getRecentPosts, getCategoriesWithCounts } from '../data/posts';
-import { categories } from '../config';
+import { getRecentPosts, getCategoriesWithCounts, getAllCategories } from '../data/posts';
 import AdSense from './AdSense';
 import './Sidebar.css';
 
 const Sidebar = () => {
   const recentPosts = getRecentPosts(5);
   const categoryCounts = getCategoriesWithCounts();
+  const categories = getAllCategories();
   const [email, setEmail] = useState('');
 
   const handleNewsletterSubmit = (e) => {

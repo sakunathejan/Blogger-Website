@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import BlogCard from '../components/BlogCard';
 import Sidebar from '../components/Sidebar';
 import SEO from '../components/SEO';
-import { getFeaturedPosts, getRecentPosts, getPostsByCategory } from '../data/posts';
-import { siteConfig, categories } from '../config';
+import { getFeaturedPosts, getRecentPosts, getPostsByCategory, getAllCategories } from '../data/posts';
+import { siteConfig } from '../config';
 import './Home.css';
 
 const Home = () => {
@@ -15,6 +15,8 @@ const Home = () => {
 
   useEffect(() => {
     if (categoryParam) {
+      // Get all categories dynamically from posts
+      const categories = getAllCategories();
       // Find the matching category by converting slug back to category name
       const matchedCategory = categories.find(cat => {
         const categorySlug = cat.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
